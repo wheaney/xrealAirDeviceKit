@@ -1,0 +1,3 @@
+[submodule "modules/xrDeviceKit"]
+	path = modules/xrDeviceKit
+	url = git@github.com:wheaney/xrDeviceKit.git

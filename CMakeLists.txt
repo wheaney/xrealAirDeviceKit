@@ -3,11 +3,14 @@ project(xrealAirDeviceKit C)
 
 set(CMAKE_C_STANDARD 17)
 
-# Both paths are overridable so a parent build (e.g. nrealAirLinuxDriver's own
-# examples/, which pulls this package in as a submodule) can point them at an
-# already-checked-out copy instead of assuming a sibling directory.
+# xrDeviceKit is vendored as a real submodule (modules/xrDeviceKit) so a fresh
+# clone of this repo is self-sufficient. nrealAirLinuxDriver instead defaults
+# to a sibling directory, since it's also this repo's *own* upstream when used
+# standalone; either path is overridable so a parent build (e.g.
+# nrealAirLinuxDriver's own examples/, which pulls this package in as a
+# submodule) can point it at an already-checked-out copy instead.
 if(NOT DEFINED XRDEVICEKIT_ROOT)
-	set(XRDEVICEKIT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../xrDeviceKit")
+	set(XRDEVICEKIT_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/modules/xrDeviceKit")
 endif()
 
 if(NOT DEFINED NREAL_AIR_DRIVER_ROOT)
