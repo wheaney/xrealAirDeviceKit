@@ -26,6 +26,7 @@ device_imu_error_type device_imu_open_hid(device_imu_type* device, device_imu_ev
     memset(device, 0, sizeof(device_imu_type));
     device->vendor_id 	= xreal_vendor_id;
     device->product_id 	= 0;
+    device->sample_rate = 1000;
 
     if (!device_init()) {
         return DEVICE_IMU_ERROR_NOT_INITIALIZED;
